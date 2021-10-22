@@ -11,7 +11,7 @@ var condiciones;
 var imprimir;
 var restablecer;
 var aceptarPago;
-
+var sumaPrecio;
 
 
 
@@ -30,6 +30,18 @@ function cargarPago(){
     }
 }
 
+function añadirCompra(){
+    if(articulosCarrito.value ==""){
+        articulosCarrito.value = nombre.value;
+    }else{
+        articulosCarrito.value=articulosCarrito.value.concat(", ",nombre.value);
+    }
+    
+    sumaPrecio = parseFloat(precio.value) * parseFloat(unidades.value);
+    precioTotal.value = Number(precioTotal.value)+sumaPrecio;
+    
+     
+}
 
 
 function inicializar(){
@@ -53,10 +65,17 @@ function inicializar(){
     aceptarPago.style.display="block";
     pagoEfectivo.style.display="none";
     pagoTarjeta.style.display="none";
+
+    imprimir.disabled=true;
+    nombre.focus();
+    
+    
+    
 }
 
 function manejadorEventos(){
     pago.addEventListener("change", cargarPago);
+    botonAñadir.addEventListener("click",añadirCompra);
 }
 window.onload = function(){
     inicializar();
