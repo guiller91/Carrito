@@ -10,8 +10,8 @@
 <body>
     <div id="carrito">
         <form name="formulario">
-            Nombre del artículo: <input type="text" id="nombre"/><br/><br/>
-            Precio del artículo: <input type="text" id="precio"/><br/><br/>
+            Nombre del artículo: <input type="text" id="nombre"/><span id="errorNombre"></span><br/><br/>
+            Precio del artículo: <input type="text" id="precio"/><span id="errorPrecio"></span><br/><br/>
             Unidades: <input type="number" id="unidades" value="1"/><br/><br/>
             <input type="button" value="Añadir al carrito" id="botonAñadir"/><br/><br/>
               
@@ -34,7 +34,7 @@
                 Importe efectivo: <input type="text" id="nombreTarjeta"/><br/><br/>                
             </div>
             <br/><br/>
-            
+
             <div id="aceptarPago">
                 <input type="checkbox" id="condiciones" value="aceptar">
                 <label>Acepto las condiciones de compra</label><br/><br/>
