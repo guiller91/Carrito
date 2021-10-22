@@ -12,7 +12,7 @@ var imprimir;
 var restablecer;
 var aceptarPago;
 var sumaPrecio;
-
+var sumaTotal = 0 ;
 
 
     
@@ -38,7 +38,9 @@ function añadirCompra(){
     }
     
     sumaPrecio = parseFloat(precio.value) * parseFloat(unidades.value);
-    precioTotal.value = Number(precioTotal.value)+sumaPrecio;
+    sumaTotal+=sumaPrecio;
+    precioTotal.value = sumaTotal.toFixed(2);
+    
     
      
 }
@@ -68,6 +70,7 @@ function inicializar(){
 
     imprimir.disabled=true;
     nombre.focus();
+   
     
     
     
