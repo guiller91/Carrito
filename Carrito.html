@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="CodigoCarrito.js"></script>
+</head>
+<body>
+    <div id="carrito">
+        <form name="formulario">
+            Nombre del artículo: <input type="text" id="nombre"/><br/><br/>
+            Precio del artículo: <input type="text" id="precio"/><br/><br/>
+            Unidades: <input type="number" id="unidades" value="1"/><br/><br/>
+            <input type="button" value="Añadir al carrito" id="botonAñadir"/><br/><br/>
+              
+            Articulos en el carrito: <input type="text" id="articulosCarrito"/><br/><br/>
+            Precio total del carrito: <input type="text" id="precioTotal"/><br/><br/>
+
+            Forma de pago: <select id="pago">
+                                <option value="Seleccione">--Seleccione--</option>
+                                <option value="tarjeta" id="tarjeta">Tarjeta</option>
+                                <option value="efectivo" id="efectivo">Efectivo</option>
+                           </select>
+            <br/><br/><br/>                  
+            <div id="pagoTarjeta">
+                Titular tarjeta: <input type="text" id="nombreTarjeta"/><br/><br/>
+                Numero de tarjeta: <input type="text" id="numTarjeta"/><br/><br/>
+                CVV: <input type="text" id="cvv"/><br/><br/>
+            </div> 
+
+            <div id="pagoEfectivo">
+                Importe efectivo: <input type="text" id="nombreTarjeta"/><br/><br/>                
+            </div>
+            <br/><br/>
+            
+            <div id="aceptarPago">
+                <input type="checkbox" id="condiciones" value="aceptar">
+                <label>Acepto las condiciones de compra</label><br/><br/>
+            
+                <input type="button" value="Imprimir" id="imprimir"/>
+                <input type="button" value="Restablecer" id="restablecer"/><br/><br/>
+            </div>
+        
+        </form>
+    </div>
+
+
+</body>
+</html>
