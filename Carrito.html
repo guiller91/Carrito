@@ -12,7 +12,7 @@
         <form name="formulario">
             Nombre del artículo: <input type="text" id="nombre"/><span id="errorNombre"></span><br/><br/>
             Precio del artículo: <input type="text" id="precio"/><span id="errorPrecio"></span><br/><br/>
-            Unidades: <input type="number" id="unidades" value="1"/><br/><br/>
+            Unidades: <input type="number" id="unidades" value="1" min="1"/><br/><br/>
             <input type="button" value="Añadir al carrito" id="botonAñadir"/><br/><br/>
               
             Articulos en el carrito: <input type="text" id="articulosCarrito"/><br/><br/>
@@ -25,9 +25,9 @@
                            </select>
             <br/><br/><br/>                  
             <div id="pagoTarjeta">
-                Titular tarjeta: <input type="text" id="nombreTarjeta"/><br/><br/>
-                Numero de tarjeta: <input type="text" id="numTarjeta"/><br/><br/>
-                CVV: <input type="text" id="cvv"/><br/><br/>
+                Titular tarjeta: <input type="text" id="nombreTarjeta"/><span id="errorTitular"></span><br/><br/>
+                Numero de tarjeta: <input type="text" id="numTarjeta"/><span id="errorTarjeta"></span><br/><br/>
+                CVV: <input type="text" id="cvv"/><span id="errorCvv"></span><br/><br/>
             </div> 
 
             <div id="pagoEfectivo">
