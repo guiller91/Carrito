@@ -6,10 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="CodigoCarrito.js"></script>
-</head>
+    <link rel="stylesheet" href="Estilo.css">
 <body>
     <div id="carrito">
-        <form name="formulario">
+        <form id="formulario">
             Nombre del artículo: <input type="text" id="nombre"/><span id="errorNombre"></span><br/><br/>
             Precio del artículo: <input type="text" id="precio"/><span id="errorPrecio"></span><br/><br/>
             Unidades: <input type="number" id="unidades" value="1" min="1"/><br/><br/>
@@ -31,7 +31,7 @@
             </div> 
 
             <div id="pagoEfectivo">
-                Importe efectivo: <input type="text" id="nombreTarjeta"/><br/><br/>                
+                Importe efectivo: <input type="text" id="importeEfectivo"/><span id="errorEfectivo"></span><br/><br/>                
             </div>
             <br/><br/>
 

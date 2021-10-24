@@ -19,10 +19,11 @@ var errorCvv;
 var nombreTarjeta;
 var numTarjeta;
 var cvv;
- 
-function validarArticulo(){
-    
-    let validarPrecio = /^\d+([,.]\d{1,2})?$/;
+var importeEfectivo;
+var errorEfectivo;
+let validarPrecio = /^\d+([,.]\d{1,2})?$/;
+
+function validarArticulo(){   
     var error = 0;
     if (nombre.value==""){
         errorNombre.innerHTML= "Falta artículo";
@@ -52,7 +53,7 @@ function validarPago(){
     var error = 0;
 
     if(pago.value=="Seleccione"){
-        alert("Porfavor eliga un metodo de pago");
+        alert("Por favor eliga un metodo de pago");
         error++;
     }
     if(pago.value=="tarjeta"){
@@ -87,13 +88,29 @@ function validarPago(){
             errorCvv.innerHTML = "";
         }
     }
+    if(pago.value=="efectivo"){
+         
+        if(importeEfectivo.value == ""){
+            errorEfectivo.innerHTML = "Introduzca cantidad";
+            error++;
+        }else{
+            errorEfectivo.innerHTML = "";
+        }
+        if(!validarPrecio.test(importeEfectivo.value)){
+            errorEfectivo.innerHTML = "Introduzca cantidad valida";
+            error++;
+        }else{
+            errorEfectivo.innerHTML = "";
+        }
+    }
     if (error==0){
         imprimirPago();
     }
 }
 
 function imprimirPago(){
-    alert("Los articulos del carrito son: " + articulosCarrito.value);
+    alert("Los articulos del carrito son: " + articulosCarrito.value +"\nEl precio total es: "
+        + precioTotal.value +"€" + "\nForma de pago: "+ pago.value);
 }
 
 function cargarPago(){
@@ -137,8 +154,7 @@ function inicializar(){
     pago = document.getElementById("pago");
     condiciones = document.getElementById("condiciones");
     imprimir = document.getElementById("imprimir");
-    restablecer = document.getElementById("restablecer");
-    
+    restablecer = document.getElementById("restablecer");   
     pagoTarjeta = document.getElementById("pagoTarjeta");
     pagoEfectivo = document.getElementById("pagoEfectivo");
     aceptarPago = document.getElementById("aceptarPago");
@@ -148,13 +164,18 @@ function inicializar(){
     nombreTarjeta = document.getElementById("nombreTarjeta");
     numTarjeta = document.getElementById("numTarjeta");
     cvv = document.getElementById("cvv");
-    
+    importeEfectivo = document.getElementById("importeEfectivo");
+    errorEfectivo = document.getElementById("errorEfectivo");
+
     aceptarPago.style.display="block";
     pagoEfectivo.style.display="none";
     pagoTarjeta.style.display="none";
-
+    
     nombre.focus();
-    imprimir.disabled = true;   
+    imprimir.disabled = true; 
+    
+    articulosCarrito.readOnly=true;
+    precioTotal.readOnly=true;
 }
 
 function activadorCondiciones(){
@@ -164,12 +185,22 @@ function activadorCondiciones(){
         imprimir.disabled = true;
     }
 }
+function restablecerFormu(){
+     document.getElementById("formulario").reset();
+     pagoEfectivo.style.display="none";
+     pagoTarjeta.style.display="none";
+     condiciones.checked=false;
+     imprimir.disabled = true;
+     nombre.focus();
+
+}
 
 function manejadorEventos(){
     pago.addEventListener("change", cargarPago);
     botonAñadir.addEventListener("click",validarArticulo);
     condiciones.addEventListener("change",activadorCondiciones);
     imprimir.addEventListener("click", validarPago);
+    restablecer.addEventListener("click", restablecerFormu);
 }
 window.onload = function(){
     inicializar();
