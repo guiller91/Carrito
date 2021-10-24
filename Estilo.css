@@ -9,7 +9,7 @@ form{
 }
 form input[type="text"], 
 form select{
-	width:180px;
+	width:250px;
 	padding:3px 10px;
 	border:1px solid #f6f6f6;
 	border-radius:3px;
