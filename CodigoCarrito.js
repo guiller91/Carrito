@@ -29,16 +29,22 @@ function validarArticulo(){
         errorNombre.innerHTML= "Falta artículo";
         nombre.focus();
         error++;
+    }else{
+        errorNombre.innerHTML= "";
     }
     if(!validarPrecio.test(precio.value)){
         errorPrecio.innerHTML= "introduzca un precio valido";
         precio.focus();
         error++;
+    }else{
+        errorPrecio.innerHTML="";
     }
     if(precio.value == ""){
         errorPrecio.innerHTML= "Falta precio";
         precio.focus();
         error++;
+    }else{
+        errorPrecio.innerHTML="";
     }
     if(error==0){
         añadirCompra();
@@ -187,6 +193,12 @@ function activadorCondiciones(){
 }
 function restablecerFormu(){
      document.getElementById("formulario").reset();
+     errorPrecio.innerHTML="";
+     errorNombre.innerHTML="";
+     errorTitular.innerHTML = "";
+     errorTarjeta.innerHTML = "";
+     errorCvv.innerHTML = "";
+     errorEfectivo.innerHTML = "";
      pagoEfectivo.style.display="none";
      pagoTarjeta.style.display="none";
      condiciones.checked=false;

@@ -7,9 +7,10 @@
     <title>Document</title>
     <script src="CodigoCarrito.js"></script>
     <link rel="stylesheet" href="Estilo.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 <body>
-    <div id="carrito">
-        <form id="formulario">
+    <div id="carrito" >
+        <form id="formulario" class="animate__animated animate__zoomInUp">
             Nombre del artículo: <input type="text" id="nombre"/><span id="errorNombre"></span><br/><br/>
             Precio del artículo: <input type="text" id="precio"/><span id="errorPrecio"></span><br/><br/>
             Unidades: <input type="number" id="unidades" value="1" min="1"/><br/><br/>
@@ -24,13 +25,13 @@
                                 <option value="efectivo" id="efectivo">Efectivo</option>
                            </select>
             <br/><br/><br/>                  
-            <div id="pagoTarjeta">
+            <div id="pagoTarjeta" class="animate__animated animate__zoomIn">
                 Titular tarjeta: <input type="text" id="nombreTarjeta"/><span id="errorTitular"></span><br/><br/>
                 Numero de tarjeta: <input type="text" id="numTarjeta"/><span id="errorTarjeta"></span><br/><br/>
                 CVV: <input type="text" id="cvv"/><span id="errorCvv"></span><br/><br/>
             </div> 
 
-            <div id="pagoEfectivo">
+            <div id="pagoEfectivo" class="animate__animated animate__zoomIn">
                 Importe efectivo: <input type="text" id="importeEfectivo"/><span id="errorEfectivo"></span><br/><br/>                
             </div>
             <br/><br/>
