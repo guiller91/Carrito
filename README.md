@@ -41,8 +41,8 @@ function validarPago(){
             error++;
         }
         if(pago.value=="tarjeta"){
-            if(nombreTarjeta.value == ""){
-                errorTitular.innerHTML = "Introduca un nombre";
+            if(!validarNombre.test(nombreTarjeta.value)){
+                errorTitular.innerHTML = "Introduca un nombre valido";
                 error++;
             }else{
                 errorTitular.innerHTML = "";
@@ -91,7 +91,7 @@ function validarPago(){
             imprimirPago();
         }
 
-    }   
+    }    
 }
 ```
 

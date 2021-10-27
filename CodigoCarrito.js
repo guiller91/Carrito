@@ -22,10 +22,9 @@ var cvv;
 var importeEfectivo;
 var errorEfectivo;
 let validarPrecio = /^\d+([,.]\d{1,2})?$/;
+let validarNombre = /^[a-zA-Z\s]{2,254}?$/;
 
 function validarArticulo(){
-    
-    let validarNombre = /^[a-zA-Z\s]{2,254}?$/;
     var error = 0;
     
     if (!validarNombre.test(nombre.value)){
@@ -61,8 +60,8 @@ function validarPago(){
             error++;
         }
         if(pago.value=="tarjeta"){
-            if(nombreTarjeta.value == ""){
-                errorTitular.innerHTML = "Introduca un nombre";
+            if(!validarNombre.test(nombreTarjeta.value)){
+                errorTitular.innerHTML = "Introduca un nombre valido";
                 error++;
             }else{
                 errorTitular.innerHTML = "";
