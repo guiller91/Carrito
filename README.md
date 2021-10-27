@@ -90,7 +90,7 @@ function validarPago(){
 }
 ```
 
-- Validar que el nombre solo acepte Letras y espacios, con el siguiente patrón
+- Validar que el nombre solo acepte Letras y espacios, con el siguiente patrón y que minimo tenga 2 letras
 
 ```jsx
 let validarNombre = /^[a-zA-Z\s]{2,254}?$/;
