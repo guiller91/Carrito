@@ -188,8 +188,8 @@ function inicializar(){
     nombre.focus();
     imprimir.disabled = true; 
     
-    articulosCarrito.readOnly=true;
-    precioTotal.readOnly=true;
+    articulosCarrito.disabled=true;
+    precioTotal.disabled=true;
 }
 
 function activadorCondiciones(){
