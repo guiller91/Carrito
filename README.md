@@ -33,60 +33,65 @@ function validarPago(){
     let validarCvv = /^\d{3}$/;
     var error = 0;
 
-    if(pago.value=="Seleccione"){
-        alert("Por favor eliga un metodo de pago");
-        error++;
-    }
-    if(pago.value=="tarjeta"){
-        if(nombreTarjeta.value == ""){
-            errorTitular.innerHTML = "Introduca un nombre";
+    if(precioTotal.value==0){
+        alert("No hay nada en el carrito");
+    }else{
+        if(pago.value=="Seleccione"){
+            alert("Por favor eliga un metodo de pago");
             error++;
-        }else{
-            errorTitular.innerHTML = "";
         }
-        if(numTarjeta.value ==""){
-            errorTarjeta.innerHTML ="introduzca numero";
-            error++;
-        }else{
-            errorTarjeta.innerHTML = "";
+        if(pago.value=="tarjeta"){
+            if(nombreTarjeta.value == ""){
+                errorTitular.innerHTML = "Introduca un nombre";
+                error++;
+            }else{
+                errorTitular.innerHTML = "";
+            }
+            if(numTarjeta.value ==""){
+                errorTarjeta.innerHTML ="introduzca numero";
+                error++;
+            }else{
+                errorTarjeta.innerHTML = "";
+            }
+            if(!validarNumero.test(numTarjeta.value)){
+                errorTarjeta.innerHTML = "introduzca numero valido";
+                error++;
+            }else{
+                errorTarjeta.innerHTML = "";
+            }
+            if(cvv.value =="" ){
+                errorCvv.innerHTML = "Introduzca un codigo";
+                error++;
+            }else{
+                errorCvv.innerHTML = "";
+            }
+            if(!validarCvv.test(cvv.value)){
+                errorCvv.innerHTML = "Introduzca un codigo valido";
+                error++;
+            }else{
+                errorCvv.innerHTML = "";
+            }
         }
-        if(!validarNumero.test(numTarjeta.value)){
-            errorTarjeta.innerHTML = "introduzca numero valido";
-            error++;
-        }else{
-            errorTarjeta.innerHTML = "";
+        if(pago.value=="efectivo"){
+             
+            if(importeEfectivo.value == ""){
+                errorEfectivo.innerHTML = "Introduzca cantidad";
+                error++;
+            }else{
+                errorEfectivo.innerHTML = "";
+            }
+            if(!validarPrecio.test(importeEfectivo.value)){
+                errorEfectivo.innerHTML = "Introduzca cantidad valida";
+                error++;
+            }else{
+                errorEfectivo.innerHTML = "";
+            }
         }
-        if(cvv.value =="" ){
-            errorCvv.innerHTML = "Introduzca un codigo";
-            error++;
-        }else{
-            errorCvv.innerHTML = "";
+        if (error==0){
+            imprimirPago();
         }
-        if(!validarCvv.test(cvv.value)){
-            errorCvv.innerHTML = "Introduzca un codigo valido";
-            error++;
-        }else{
-            errorCvv.innerHTML = "";
-        }
-    }
-    if(pago.value=="efectivo"){
-         
-        if(importeEfectivo.value == ""){
-            errorEfectivo.innerHTML = "Introduzca cantidad";
-            error++;
-        }else{
-            errorEfectivo.innerHTML = "";
-        }
-        if(!validarPrecio.test(importeEfectivo.value)){
-            errorEfectivo.innerHTML = "Introduzca cantidad valida";
-            error++;
-        }else{
-            errorEfectivo.innerHTML = "";
-        }
-    }
-    if (error==0){
-        imprimirPago();
-    }
+
+    }   
 }
 ```
 

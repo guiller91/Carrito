@@ -111,10 +111,7 @@ function validarPago(){
             imprimirPago();
         }
 
-    }
-    
-    
-    
+    }    
 }
 
 function imprimirPago(){
