@@ -23,7 +23,9 @@ var importeEfectivo;
 var errorEfectivo;
 let validarPrecio = /^\d+([,.]\d{1,2})?$/;
 
-function validarArticulo(){   
+function validarArticulo(){
+    
+    let validarNombre = /^[a-zA-Z\s]{2,254}?$/;
     var error = 0;
     if (nombre.value==""){
         errorNombre.innerHTML= "Falta artículo";
@@ -32,6 +34,13 @@ function validarArticulo(){
     }else{
         errorNombre.innerHTML= "";
     }
+    if (!validarNombre.test(nombre.value)){
+        errorNombre.innerHTML="Introduzca un articulo valido";
+        nombre.focus();
+        error++;
+    }else{
+        errorNombre.innerHTML= "";
+    }   
     if(!validarPrecio.test(precio.value)){
         errorPrecio.innerHTML= "introduzca un precio valido";
         precio.focus();
@@ -115,8 +124,18 @@ function validarPago(){
 }
 
 function imprimirPago(){
-    alert("Los articulos del carrito son: " + articulosCarrito.value +"\nEl precio total es: "
+    if(pago.value=="efectivo"){
+        if(precioTotal.value>importeEfectivo.value){
+            
+            alert("Le faltan "+(precioTotal.value-importeEfectivo.value)+"€ para llegar al total");
+        }else{
+            alert("Los articulos del carrito son: " + articulosCarrito.value +"\nEl precio total es: "
+            + precioTotal.value +"€" + "\nForma de pago: "+ pago.value+"\nCambio: " +(importeEfectivo.value-precioTotal.value)+"€");
+        }
+    }else{
+        alert("Los articulos del carrito son: " + articulosCarrito.value +"\nEl precio total es: "
         + precioTotal.value +"€" + "\nForma de pago: "+ pago.value);
+    }    
 }
 
 function cargarPago(){
@@ -144,7 +163,7 @@ function añadirCompra(){
     nombre.value = "";
     precio.value = "";
     unidades.value = 1;
-       
+    nombre.focus();   
 }
 
 
